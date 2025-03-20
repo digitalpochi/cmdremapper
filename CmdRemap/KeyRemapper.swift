@@ -75,7 +75,7 @@ class KeyRemapper {
     private static func postKey(keyCode: CGKeyCode, isDown: Bool) {
         let loc = CGEventTapLocation.cghidEventTap
         let keyEvent = CGEvent(keyboardEventSource: nil, virtualKey: keyCode, keyDown: isDown)!
-        keyEvent.flags = CGEventFlags()
+        keyEvent.flags = .maskNonCoalesced
         keyEvent.post(tap: loc)
     }
 }
